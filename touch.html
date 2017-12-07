@@ -7,7 +7,7 @@
 	<style>
 		.box{
 			width:300px;
-			height:500px;
+			height:400px;
 			background:#ddd;
 		}
 
@@ -27,19 +27,19 @@
 			alert('clicked')
 		})
 		box.addEventListener('touchstart',function(e){
-			p1.innerHTML=e.touches.length;
-			p1.innerHTML=e.targetTouches.length;
-			p1.innerHTML=e.changedTouches.length;
+			p1.innerHTML="e.touches.length:"+e.touches.length;
+			p2.innerHTML="e.targetTouches.length:"+e.targetTouches.length;
+			p3.innerHTML="e.changedTouches.length:"+e.changedTouches.length;
 		})
 		box.addEventListener('touchmove',function(e){
-			p1.innerHTML=e.touches.length;
-			p1.innerHTML=e.targetTouches.length;
-			p1.innerHTML=e.changedTouches.length;
+			p1.innerHTML="e.touches.length:"+e.touches.length;
+			p2.innerHTML="e.targetTouches.length:"+e.targetTouches.length;
+			p3.innerHTML="e.changedTouches.length:"+e.changedTouches.length;
 		})
 		box.addEventListener('touchend',function(e){
-			p1.innerHTML=e.touches.length;
-			p1.innerHTML=e.targetTouches.length;
-			p1.innerHTML=e.changedTouches.length;
+			p1.innerHTML="e.touches.length:"+e.touches.length;
+			p2.innerHTML="e.targetTouches.length:"+e.targetTouches.length;
+			p3.innerHTML="e.changedTouches.length:"+e.changedTouches.length;
 		})
 	</script>
 </body>
