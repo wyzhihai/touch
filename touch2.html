@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>Document</title>
+	<style>
+		html,body{
+			width:100%;
+			height:100%;
+		}
+		.viewport{
+			width:100%;
+			height:100%;
+			background:gray;
+			overflow:hidden;
+		}
+		.container{
+			width:400%;
+			height:100%;
+			position:relative;
+		}
+		.box{
+			float:left;
+			width:25%;
+			height:100%;
+		}
+		.box1{
+			background:red;
+		}
+		.box2{
+			background:green;
+		}
+		.box3{
+			background:blue;
+		}
+		.box4{
+			background:yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="viewport">
+		<div class="container">
+			<div class="box box1"></div>
+			<div class="box box2"></div>
+			<div class="box box3"></div>
+			<div class="box box4"></div>
+		</div>
+	</div>
+	<script>
+		var viewport=document.querySelector(".viewport");
+		var container=document.querySelector(".container");
+		viewport.addEventListener('touchstart',function(e){
+			var start=e.targetTouches[0].pageX;
+			var left=container.offsetLeft;
+			viewport.addEventListener('touchmove',function(e){
+				var dis=e.targetTouches[0].pageX-start;
+				container.style.left=left+dis+"px";
+			})
+			viewport.addEventListener('touchend',function(){
+				var n=Math.round(container.offsetLeft/window.innerWidth);
+				if(n>0)
+					n=0;
+				if(n<-3)
+					n=-3;
+				container.style.left=n*window.innerWidth+'px';
+			})
+		})
+	</script>
+</body>
+</html>
